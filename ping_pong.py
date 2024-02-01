@@ -1,10 +1,10 @@
 from pygame import *
 
 class GameSprite(sprite.Sprite):
-    def __init__(self, player_image, player_x, player_y, player_speed, wight, height): # добавить еще два параметра при создании и задавать размер прямоугольгника для картинки самим
+    def __init__(self, player_image, player_x, player_y, player_speed, width, height):
         super().__init__()
  
-        self.image = transform.scale(image.load(player_image), (wight, height)) # вместе 55,55 - параметры
+        self.image = transform.scale(image.load(player_image), (width, height))
         self.speed = player_speed
 
         self.rect = self.image.get_rect()
@@ -29,7 +29,7 @@ class Player(GameSprite):
         if keys[K_s] and self.rect.y < win_height - 80:
             self.rect.y += self.speed
 
-#Игровая сцена:
+
 back = (200, 255, 255)
 win_width = 600
 win_height = 500
